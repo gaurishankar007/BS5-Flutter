@@ -103,7 +103,7 @@ class RowExample extends StatelessWidget {
                 "Blue",
                 style: TextStyle(
                   fontSize: 30,
-                  fontFamily: "fonts/PinyonScript-Regular.ttf",
+                  fontFamily: "FuzzyBubbles",
                 ),
               ),
             ),
