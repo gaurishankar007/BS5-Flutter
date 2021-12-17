@@ -179,10 +179,19 @@ class _ButtonExample1State extends State<ButtonExample1> {
                     }
                   });
                 },
-                child: Icon(
-                  Icons.add,
-                  size: 20,
-                  color: Colors.white,
+                child: SizedBox(
+                  width: 70,
+                  child: Row(children: const [
+                    Icon(
+                      Icons.add,
+                      size: 20,
+                      color: Colors.white,
+                    ),
+                    Text("  ADD",
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),)
+                  ]),
                 ),
               ),
               SizedBox(

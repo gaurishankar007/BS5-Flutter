@@ -54,7 +54,6 @@ class StackImage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Stack(
-          overflow: Overflow.visible,
           children: [
             Image.asset("images/spidy.jpg"),
             const Positioned(

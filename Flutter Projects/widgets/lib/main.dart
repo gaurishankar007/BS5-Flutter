@@ -1,4 +1,4 @@
-import 'package:column_example/screen/button.dart';
+import 'package:column_example/screen/form.dart';
 import "package:flutter/material.dart";
 
 void main() {
@@ -11,8 +11,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Button Example",
-      home: ButtonExample1(),
+      title: "Form Example",
+      home: FormExample(),
     );
   }
 }
