@@ -8,10 +8,10 @@ class FormExample extends StatefulWidget {
 }
 
 class _FormExampleState extends State<FormExample> {
-  final fristCtrl = TextEditingController();
-  final secondCtrl = TextEditingController();
+  final fristCtrl = TextEditingController(text: "0");
+  final secondCtrl = TextEditingController(text: "0");
   final _fromKey = GlobalKey<FormState>();
-  String result = "0";
+  String result = "";
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +45,7 @@ class _FormExampleState extends State<FormExample> {
                   controller: fristCtrl,
                   keyboardType: TextInputType.number,
                   style: TextStyle(
-                    color: Colors.green,
+                    color: Colors.white,
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
@@ -73,7 +73,7 @@ class _FormExampleState extends State<FormExample> {
                   controller: secondCtrl,
                   keyboardType: TextInputType.number,
                   style: TextStyle(
-                    color: Colors.green,
+                    color: Colors.white,
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
@@ -92,10 +92,12 @@ class _FormExampleState extends State<FormExample> {
                   height: 20,
                 ),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        minimumSize: Size(25.0, 20.0),
+                        primary: Colors.greenAccent,
+                        minimumSize: Size(40.0, 30.0),
                       ),
                       onPressed: () {
                         if (_fromKey.currentState!.validate()) {
@@ -106,25 +108,34 @@ class _FormExampleState extends State<FormExample> {
                           });
                         }
                       },
-                      child: Icon(Icons.add),
+                      child: Text(
+                        "Add",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                        ),
+                      ),
                     ),
                     SizedBox(
                       height: 30,
                     ),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        minimumSize: Size(25.0, 20.0),
+                        primary: Colors.redAccent,
+                        minimumSize: Size(40.0, 30.0),
                       ),
                       onPressed: () {
-                        if (_fromKey.currentState!.validate()) {
-                          setState(() {
-                            result = (int.parse(fristCtrl.text) +
-                                    int.parse(secondCtrl.text))
-                                .toString();
-                          });
-                        }
+                        setState(() {
+                          result = "";
+                        });
                       },
-                      child: Icon(Icons.add),
+                      child: Text(
+                        "Clear",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                        ),
+                      ),
                     ),
                   ],
                 ),
