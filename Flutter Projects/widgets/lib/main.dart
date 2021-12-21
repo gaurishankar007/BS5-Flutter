@@ -1,4 +1,4 @@
-import 'package:column_example/screen/form.dart';
+import 'package:column_example/screen/form_validator.dart';
 import "package:flutter/material.dart";
 
 void main() {
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Form Example",
-      home: SICalculator(),
+      home: MyForm(),
     );
   }
 }

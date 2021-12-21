@@ -16,7 +16,10 @@ class ContainerScreen extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             color: Colors.amber,
-            border: Border.all(color: Colors.black, width: 5,), // con not give color in container if you are using decoration inside a container or you can give background color inside dercoration
+            border: Border.all(
+              color: Colors.black,
+              width: 5,
+            ), // con not give color in container if you are using decoration inside a container or you can give background color inside dercoration
             borderRadius: BorderRadius.circular(20),
           ),
           margin: EdgeInsets.symmetric(horizontal: 30, vertical: 100),
