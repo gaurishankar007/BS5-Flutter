@@ -1,4 +1,7 @@
-import 'package:column_example/screen/form_validator.dart';
+import 'package:column_example/screen/alertdialog.dart';
+import 'package:column_example/screen/button.dart';
+import 'package:column_example/screen/navigation.dart';
+import 'package:column_example/screen/snackbar.dart';
 import "package:flutter/material.dart";
 
 void main() {
@@ -11,8 +14,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      initialRoute: '/',
+      routes: {
+        '/': (context)=> Navigation(),
+        '/button': (context)=> ButtonExample(),
+        '/snackbar': (context)=> SnackBarExample(),
+        '/alertdialog': (context)=> AlertDialogExample(),
+      },
       title: "Form Example",
-      home: MyForm(),
+      // home: MyForm(),
     );
   }
 }

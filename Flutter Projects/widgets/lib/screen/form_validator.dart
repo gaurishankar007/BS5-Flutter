@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import "package:form_field_validator/form_field_validator.dart";
 import "package:fluttertoast/fluttertoast.dart";
+import 'package:motion_toast/motion_toast.dart';
 
 class MyForm extends StatefulWidget {
   const MyForm({Key? key}) : super(key: key);
@@ -88,9 +89,19 @@ class _MyFormState extends State<MyForm> {
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     _formKey.currentState!.save();
-                    Fluttertoast.showToast(msg: "Success");
+                    // Fluttertoast.showToast(msg: "Success");
+                    MotionToast.success(
+                      description: "Data saved Successfully.",
+                      title: "Submit Success",
+                      toastDuration: Duration(seconds: 3),
+                    ).show(context);
                   } else {
-                    Fluttertoast.showToast(msg: "Unsucess");
+                    // Fluttertoast.showToast(msg: "Unsucess");
+                    MotionToast.error(
+                      description: "Failed to save the Data.",
+                      title: "Submit faild!",
+                      toastDuration: Duration(seconds: 3),
+                    ).show(context);
                   }
                 },
                 style: TextButton.styleFrom(

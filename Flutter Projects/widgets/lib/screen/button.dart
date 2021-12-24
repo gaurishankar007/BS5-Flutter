@@ -75,6 +75,18 @@ class _ButtonExampleState extends State<ButtonExample> {
               onPressed: () {},
               child: Text("Outlined Button"),
             ),
+            SizedBox(
+              height: 30,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              style: TextButton.styleFrom(
+                backgroundColor: Colors.green,
+              ),
+              child: Text("Go Back"),
+            )
           ],
         ),
       ),

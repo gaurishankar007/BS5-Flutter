@@ -16,7 +16,7 @@ class _FormExampleState extends State<FormExample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.purpleAccent,
+      backgroundColor: Colors.cyan,
       appBar: myAppBar(context),
       body: Form(
         key: _fromKey,
@@ -177,6 +177,18 @@ class _FormExampleState extends State<FormExample> {
                       ),
                     )
                   ],
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.green,
+                  ),
+                  child: Text("Go Back"),
                 ),
               ],
             ),
