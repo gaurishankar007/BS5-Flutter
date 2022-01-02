@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:motion_toast/motion_toast.dart';
 
 class TodoApp extends StatefulWidget {
   const TodoApp({Key? key}) : super(key: key);
@@ -12,6 +13,7 @@ class _TodoAppState extends State<TodoApp> {
   String task = "";
   bool validate = false;
 
+  final List<String> allTask = [];
   final List<Task> incTaskList = [];
   final List<Task> cTaskList = [];
 
@@ -53,7 +55,17 @@ class _TodoAppState extends State<TodoApp> {
                         .trim(); // trim() removes the white space at the start and end of a string
                     task.isEmpty ? validate = true : validate = false;
                     if (task.isEmpty == false) {
-                      incTaskList.add(Task(taskName: task, completion: false));
+                      if (!allTask.contains(task)) {
+                        allTask.add(task);
+                        incTaskList
+                            .add(Task(taskName: task, completion: false));
+                      } else {
+                        MotionToast.error(
+                          description: "Task with that name already exist.",
+                          title: "Submit faild!",
+                          toastDuration: Duration(seconds: 3),
+                        ).show(context);
+                      }
                     }
                   });
                 },
@@ -90,12 +102,11 @@ class _TodoAppState extends State<TodoApp> {
                 width: double.maxFinite,
                 height: 200,
                 decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.deepOrange,
-                    width: 3,
-                  ),
-                  borderRadius: BorderRadius.circular(25)
-                ),
+                    border: Border.all(
+                      color: Colors.deepOrange,
+                      width: 3,
+                    ),
+                    borderRadius: BorderRadius.circular(25)),
                 child: ListView.builder(
                   itemCount: incTaskList.length,
                   itemBuilder: (context, index) {
