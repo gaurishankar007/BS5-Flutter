@@ -1,7 +1,6 @@
 import 'package:column_example/entity/person.dart';
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
-import 'form_validator.dart';
 
 class Interface1 extends StatefulWidget {
   const Interface1({Key? key}) : super(key: key);

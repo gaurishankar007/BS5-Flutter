@@ -1,9 +1,4 @@
-import 'package:column_example/screen/alertdialog.dart';
-import 'package:column_example/screen/button.dart';
-import 'package:column_example/screen/classwork.dart';
-import 'package:column_example/screen/navigation.dart';
 import 'package:column_example/screen/navigation_interfaces.dart';
-import 'package:column_example/screen/snackbar.dart';
 import "package:flutter/material.dart";
 
 void main() {
