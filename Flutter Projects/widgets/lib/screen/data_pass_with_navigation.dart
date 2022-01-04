@@ -62,7 +62,8 @@ class _Interface1State extends State<Interface1> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => Interface2(person: Person(fName, lName)),
+                        builder: (context) =>
+                            Interface2(person: Person(fName, lName)),
                       ),
                     );
                   }
@@ -77,12 +78,27 @@ class _Interface1State extends State<Interface1> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => Interface3(person: Person(fName, lName)),
+                        builder: (context) =>
+                            Interface3(person: Person(fName, lName)),
                       ),
                     );
                   }
                 },
                 child: Text("Submit to interface3"),
+              ),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) {
+                    _formKey.currentState!.save();
+                    Navigator.pushNamed(
+                      context,
+                      '/interface4',
+                      arguments: Person(fName, lName),
+                    );
+                  }
+                },
+                child: Text("Submit to interface4"),
               ),
             ],
           ),
@@ -92,7 +108,7 @@ class _Interface1State extends State<Interface1> {
   }
 }
 
-// Statless
+// Statless, passing data by calling the constructors
 class Interface2 extends StatelessWidget {
   final Person? person;
   const Interface2({Key? key, @required this.person}) : super(key: key);
@@ -113,7 +129,7 @@ class Interface2 extends StatelessWidget {
   }
 }
 
-// statefull
+// statefull, passing data by calling the constructors
 class Interface3 extends StatefulWidget {
   final Person? person;
   const Interface3({Key? key, @required this.person}) : super(key: key);
@@ -140,3 +156,28 @@ class _Interface3State extends State<Interface3> {
 }
 
 //
+
+class Interface4 extends StatefulWidget {
+  const Interface4({Key? key}) : super(key: key);
+
+  @override
+  _Interface4State createState() => _Interface4State();
+}
+
+class _Interface4State extends State<Interface4> {
+  @override
+  Widget build(BuildContext context) {
+    final person = ModalRoute.of(context)!.settings.arguments as Person;
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Stateless Screen"),
+      ),
+      body: Center(
+        child: Text(
+          "Received ${person.fName} ${person.lName}.",
+          textScaleFactor: 2,
+        ),
+      ),
+    );
+  }
+}
