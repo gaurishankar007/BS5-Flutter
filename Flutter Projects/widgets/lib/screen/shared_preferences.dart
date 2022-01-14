@@ -184,3 +184,5 @@ class CounterAsyncNotifier extends StateNotifier<AsyncValue<int>> {
     state = AsyncData(0);
   }
 }
+
+
