@@ -130,7 +130,7 @@ class _SubmitFormState extends State<SubmitForm> {
                   fontWeight: FontWeight.bold,
                 ),
                 decoration: InputDecoration(
-                  labelText: "Lat Name",
+                  labelText: "Last Name",
                   hintText: "Enter last name",
                   border: OutlineInputBorder(),
                 ),

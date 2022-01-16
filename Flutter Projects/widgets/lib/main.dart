@@ -1,4 +1,5 @@
 import 'package:column_example/screen/alertdialog.dart';
+import 'package:column_example/screen/api.dart';
 import 'package:column_example/screen/asynchronous.dart';
 import 'package:column_example/screen/button.dart';
 import 'package:column_example/screen/local_database.dart';
@@ -51,7 +52,7 @@ class MyApp extends StatelessWidget {
       //   '/interface4': (context) => Interface4()
       // },
       title: "Form Example",
-      home: LocalDatabase(),
+      home: UserRegister(),
     );
   }
 }
