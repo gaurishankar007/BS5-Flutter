@@ -476,3 +476,33 @@ class _AddStudentScreenState extends State<AddStudentScreen> {
     );
   }
 }
+
+class DisplayStudent extends StatefulWidget {
+  const DisplayStudent({Key? key}) : super(key: key);
+
+  @override
+  _DisplayStudentState createState() => _DisplayStudentState();
+}
+
+class _DisplayStudentState extends State<DisplayStudent> {
+  late Future<List<Student>> futureStudent;
+
+  @override
+  void initState() {
+    super.initState();
+    futureStudent = HttpConnectStudent().getStudents();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Display Student'),
+      ),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(20),
+        child: Column(),
+      ),
+    );
+  }
+}

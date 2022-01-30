@@ -4,6 +4,7 @@ import 'dart:io';
 
 import 'package:column_example/http/http_user.dart';
 import 'package:column_example/model/student.dart';
+import 'package:column_example/response/getstudent_resp.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 
@@ -21,9 +22,9 @@ class HttpConnectStudent {
         'Authorization': 'Bearer $mytoken',
       });
       // need a filename
-      
+
       var ss = filepath.split('/').last;
-    // adding the file in the request
+      // adding the file in the request
       request.files.add(
         http.MultipartFile(
           'file',
@@ -32,7 +33,6 @@ class HttpConnectStudent {
           filename: ss,
         ),
       );
-
 
       var response = await request.send();
       var responseString = await response.stream.bytesToString();
@@ -70,6 +70,22 @@ class HttpConnectStudent {
       }
     } catch (err) {
       log('$err');
+    }
+  }
+
+  Future<List<Student>> getStudents() async {
+    String tok = 'Bearer $mytoken';
+
+    final response = await http.get(Uri.parse(baseurl + "student/"), headers: {
+      'Authorization': tok,
+    });
+
+    if (response.statusCode == 200) {
+      var a = ResponseGetStudent.fromJson(jsonDecode(response.body));
+
+      return a.data;
+    } else {
+      throw Exception('Failed to load students');
     }
   }
 }
