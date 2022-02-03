@@ -6,7 +6,6 @@ const path = require("path");
 
 
 //--------------------CREATE Student------------------
-
 exports.createStudent = asyncHandler(async (req, res, next) => {
 
   const studentnew = {

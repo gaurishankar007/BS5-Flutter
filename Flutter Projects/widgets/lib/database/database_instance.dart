@@ -1,12 +1,12 @@
-// import 'package:column_example/database/database.dart';
+import 'package:column_example/database/database.dart';
 
-// class DatabaseInstance {
-//   static DatabaseInstance? _instance;
+class DatabaseInstance {
+  static DatabaseInstance? _instance;
 
-//   DatabaseInstance._();
-//   static DatabaseInstance get instance => _instance ??= DatabaseInstance._();
+  DatabaseInstance._();
+  static DatabaseInstance get instance => _instance ??= DatabaseInstance._();
 
-//   Future<AppDatabase> getDatabaseInstance() {
-//     return $FloorAppDatabase.databaseBuilder('my_database.db').build();
-//   }
-// }
+  Future<AppDatabase> getDatabaseInstance() {
+    return $FloorAppDatabase.databaseBuilder('my_database.db').build();
+  }
+}

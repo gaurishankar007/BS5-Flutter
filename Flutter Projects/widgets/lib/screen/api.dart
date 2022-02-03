@@ -290,145 +290,153 @@ class _AddStudentScreenState extends State<AddStudentScreen> {
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
         child: Form(
-            key: _formKey,
-            child: Column(
-              children: [
-                Container(
-                  alignment: Alignment.center,
-                  child: Text(
-                    'Add Student Information',
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.blue,
-                        letterSpacing: 5.0),
-                  ),
+          key: _formKey,
+          child: Column(
+            children: [
+              Container(
+                alignment: Alignment.center,
+                child: Text(
+                  'Add Student Information',
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blue,
+                      letterSpacing: 5.0),
                 ),
-                SizedBox(
-                  height: 10,
-                ),
-                Stack(
-                  children: [
-                    CircleAvatar(
-                      radius: 50,
-                      backgroundImage: _image == null
-                          ? const AssetImage('images/spidy.jpg')
-                              as ImageProvider
-                          : FileImage(_image!),
-                      child: InkWell(
-                        onTap: () {
-                          showModalBottomSheet(
-                              context: context,
-                              builder: (builder) => bottomSheet());
-                        },
-                        child: const Icon(
-                          Icons.upload,
-                          color: Colors.cyan,
-                          size: 30,
-                        ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Stack(
+                children: [
+                  CircleAvatar(
+                    radius: 50,
+                    backgroundImage: _image == null
+                        ? const AssetImage('images/spidy.jpg') as ImageProvider
+                        : FileImage(_image!),
+                    child: InkWell(
+                      onTap: () {
+                        showModalBottomSheet(
+                            context: context,
+                            builder: (builder) => bottomSheet());
+                      },
+                      child: const Icon(
+                        Icons.upload,
+                        color: Colors.cyan,
+                        size: 30,
                       ),
                     ),
-                  ],
-                ),
-                SizedBox(
-                  height: 30,
-                ),
-                TextFormField(
-                  onSaved: (value) {
-                    fullname = value!;
-                  },
-                  validator: MultiValidator(
-                      [RequiredValidator(errorText: "Empty field!")]),
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
                   ),
-                  decoration: InputDecoration(
-                    labelText: "Name",
-                    hintText: "Enter your name",
-                    border: OutlineInputBorder(),
-                  ),
+                ],
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              TextFormField(
+                onSaved: (value) {
+                  fullname = value!;
+                },
+                validator: MultiValidator(
+                    [RequiredValidator(errorText: "Empty field!")]),
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
                 ),
-                SizedBox(
-                  height: 20,
+                decoration: InputDecoration(
+                  labelText: "Name",
+                  hintText: "Enter your name",
+                  border: OutlineInputBorder(),
                 ),
-                TextFormField(
-                  onSaved: (value) {
-                    age = value!;
-                  },
-                  keyboardType: TextInputType.number,
-                  validator: MultiValidator([
-                    RequiredValidator(errorText: "Empty field!"),
-                    PatternValidator(r'^[0-9]*$', errorText: "Invalid age")
-                  ]),
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  decoration: InputDecoration(
-                    labelText: "Age",
-                    hintText: "Enter your age",
-                    border: OutlineInputBorder(),
-                  ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              TextFormField(
+                onSaved: (value) {
+                  age = value!;
+                },
+                keyboardType: TextInputType.number,
+                validator: MultiValidator([
+                  RequiredValidator(errorText: "Empty field!"),
+                  PatternValidator(r'^[0-9]*$', errorText: "Invalid age")
+                ]),
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
                 ),
-                SizedBox(
-                  height: 20,
+                decoration: InputDecoration(
+                  labelText: "Age",
+                  hintText: "Enter your age",
+                  border: OutlineInputBorder(),
                 ),
-                TextFormField(
-                  onSaved: (value) {
-                    gender = value!;
-                  },
-                  validator: MultiValidator(
-                      [RequiredValidator(errorText: "Empty field!")]),
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  decoration: InputDecoration(
-                    labelText: "Gender",
-                    hintText: "Enter your gender",
-                    border: OutlineInputBorder(),
-                  ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              TextFormField(
+                onSaved: (value) {
+                  gender = value!;
+                },
+                validator: MultiValidator(
+                    [RequiredValidator(errorText: "Empty field!")]),
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
                 ),
-                SizedBox(
-                  height: 20,
+                decoration: InputDecoration(
+                  labelText: "Gender",
+                  hintText: "Enter your gender",
+                  border: OutlineInputBorder(),
                 ),
-                TextFormField(
-                  onSaved: (value) {
-                    address = value!;
-                  },
-                  validator: MultiValidator(
-                      [RequiredValidator(errorText: "Empty field!")]),
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  decoration: InputDecoration(
-                    labelText: "Address",
-                    hintText: "Enter your address",
-                    border: OutlineInputBorder(),
-                  ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              TextFormField(
+                onSaved: (value) {
+                  address = value!;
+                },
+                validator: MultiValidator(
+                    [RequiredValidator(errorText: "Empty field!")]),
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
                 ),
-                SizedBox(
-                  height: 20,
+                decoration: InputDecoration(
+                  labelText: "Address",
+                  hintText: "Enter your address",
+                  border: OutlineInputBorder(),
                 ),
-                ElevatedButton(
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      _formKey.currentState!.save();
-                      Student student = Student(
-                          fullname: fullname,
-                          age: int.parse(age),
-                          gender: gender,
-                          address: address);
-                      HttpConnectStudent()
-                          .registerStudentPosts(student, _image);
-                    }
-                  },
-                  child: Text("Register"),
-                ),
-              ],
-            )),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) {
+                    _formKey.currentState!.save();
+                    Student student = Student(
+                        fullname: fullname,
+                        age: int.parse(age),
+                        gender: gender,
+                        address: address);
+                    HttpConnectStudent().registerStudentPosts(student, _image);
+                  }
+                },
+                child: Text("Register"),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => DisplayStudent()));
+                },
+                child: Text("View Student"),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -486,6 +494,7 @@ class DisplayStudent extends StatefulWidget {
 
 class _DisplayStudentState extends State<DisplayStudent> {
   late Future<List<Student>> futureStudent;
+  String photourl = 'http://10.0.2.2:3000/uploads/';
 
   @override
   void initState() {
@@ -499,9 +508,80 @@ class _DisplayStudentState extends State<DisplayStudent> {
       appBar: AppBar(
         title: const Text('Display Student'),
       ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(20),
-        child: Column(),
+      body: FutureBuilder<List<Student>>(
+        future: futureStudent,
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return ListView.builder(
+                itemCount: snapshot.data!.length,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: EdgeInsets.only(top: 10.0),
+                    child: myCard(snapshot.data![index]),
+                    //     ListTile(
+                    //   title: Text('$index'),
+                    //   subtitle: Text(
+                    //     '${snapshot.data![index].fullname} \t ${snapshot.data![index].address}   ',
+                    //   ),
+                    // ),
+                  );
+                });
+          } else if (snapshot.hasError) {
+            return Text('${snapshot.error}');
+          }
+          return const CircularProgressIndicator();
+        },
+      ),
+    );
+  }
+
+  Widget myCard(Student obj) {
+    return Container(
+      width: double.infinity,
+      height: 300,
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: Colors.red,
+          width: 3,
+        ),
+        borderRadius: BorderRadius.circular(40.0),
+      ),
+      child: Card(
+        child: Stack(
+          children: [
+            Image.network(
+              photourl + obj.photo!,
+              fit: BoxFit.cover,
+              width: double.infinity,
+            ),
+            Positioned(
+              left: 80,
+              bottom: 2,
+              child: Row(
+                children: [
+                  Text(
+                    '${obj.fullname}',
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: Colors.red,
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 50,
+                  ),
+                  Text(
+                    '${obj.address}',
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        color: Colors.red),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
