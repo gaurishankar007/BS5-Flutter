@@ -4,6 +4,7 @@ import 'package:column_example/screen/asynchronous.dart';
 import 'package:column_example/screen/button.dart';
 import 'package:column_example/screen/local_database.dart';
 import 'package:column_example/screen/data_pass_with_navigation.dart';
+import 'package:column_example/screen/sensors.dart';
 import 'package:column_example/screen/shared_preferences.dart';
 import 'package:column_example/screen/list.dart';
 import 'package:column_example/screen/radiobuttom.dart';
@@ -52,7 +53,7 @@ class MyApp extends StatelessWidget {
       //   '/interface4': (context) => Interface4()
       // },
       title: "Form Example",
-      home: UserLogin(),
+      home: ProximitySensorCheck(),
     );
   }
 }
