@@ -40,10 +40,6 @@ class _SensorPlusState extends State<SensorPlus> {
               MotionToast.info(description: 'X-axis is greater than 10')
                   .show(context);
             }
-            if (event.z > 15) {
-              MotionToast.info(description: 'Z-axis is greater than 10')
-                  .show(context);
-            }
           });
         },
       ),
@@ -53,10 +49,6 @@ class _SensorPlusState extends State<SensorPlus> {
         (GyroscopeEvent event) {
           setState(() {
             _gyroscopeValues = <double>[event.x, event.y, event.z];
-
-            if (event.x > -1) {
-              MotionToast.info(description: 'mobile is rotating').show(context);
-            }
           });
         },
       ),
@@ -172,6 +164,11 @@ class _ProximitySensorCheckState extends State<ProximitySensorCheck> {
       }
     };
     _streamSubscription = ProximitySensor.events.listen((int event) {
+      if (event > 0) {
+        MotionToast.info(
+          description: "Detected",
+        ).show(context);
+      }
       setState(() {
         _isNear = (event > 0) ? true : false;
       });
