@@ -47,6 +47,7 @@ dependencies:
   test: ^1.17.12
   sensors_plus: ^1.2.1
   proximity_sensor: ^1.0.2
+  awesome_notifications: ^0.6.21
 
 dev_dependencies:
   flutter_test:

@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:column_example/model/user.dart';
 import 'package:column_example/response/user_response.dart';
@@ -43,7 +44,7 @@ class HttpConnectUser {
         return true;
       }
     } catch (e) {
-      print(e);
+      log("$e");
     }
     return false;
   }

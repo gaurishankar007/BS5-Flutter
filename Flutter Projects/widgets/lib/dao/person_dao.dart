@@ -3,7 +3,7 @@ import 'package:floor/floor.dart';
 
 @dao
 abstract class PersonDao {
-    @insert
+  @insert
   Future<int> insertPerson(Person1 person);
 
   @insert

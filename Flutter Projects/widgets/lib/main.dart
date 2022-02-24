@@ -1,29 +1,36 @@
-import 'package:column_example/screen/alertdialog.dart';
-import 'package:column_example/screen/api.dart';
-import 'package:column_example/screen/asynchronous.dart';
-import 'package:column_example/screen/button.dart';
-import 'package:column_example/screen/local_database.dart';
-import 'package:column_example/screen/data_pass_with_navigation.dart';
-import 'package:column_example/screen/sensors.dart';
-import 'package:column_example/screen/shared_preferences.dart';
-import 'package:column_example/screen/list.dart';
-import 'package:column_example/screen/radiobuttom.dart';
-import 'package:column_example/screen/snackbar.dart';
+import 'package:column_example/screen/notification.dart';
 import "package:flutter/material.dart";
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:awesome_notifications/awesome_notifications.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  AwesomeNotifications().initialize(
+    null, // icon for your app notification
+    [
+      NotificationChannel(
+        channelKey: 'key1',
+        channelName: 'WatchMe',
+        channelDescription: "You have got notification from WatchMe.",
+        defaultColor: Colors.deepPurpleAccent[700],
+        ledColor: Colors.white,
+        playSound: true,
+        enableLights: true,
+        importance: NotificationImportance.High,
+        enableVibration: true,
+      )
+    ],
+  );
+
   runApp(
-    // If you want to user riverpod
-    // MyApp()
-    
-    // If you don't want to user riverpod
-    ProviderScope(child:MyApp())
+    MyApp(),
+
+    // If you  want to use riverpod
+    // ProviderScope(child: MyApp()),
   );
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({ Key? key }) : super(key: key);
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +60,7 @@ class MyApp extends StatelessWidget {
       //   '/interface4': (context) => Interface4()
       // },
       title: "Form Example",
-      home: SensorPlus(),
+      home: FlutterNotification(),
     );
   }
 }
