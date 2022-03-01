@@ -171,7 +171,7 @@ class _$PersonDao extends PersonDao {
   }
 
   @override
-  Future<List<int>> insertAllaPerson(List<Person1> todo) {
+  Future<List<int>> insertAllPerson(List<Person1> todo) {
     return _person1InsertionAdapter.insertListAndReturnIds(
         todo, OnConflictStrategy.abort);
   }

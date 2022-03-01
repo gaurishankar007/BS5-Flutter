@@ -7,7 +7,7 @@ abstract class PersonDao {
   Future<int> insertPerson(Person1 person);
 
   @insert
-  Future<List<int>> insertAllaPerson(List<Person1> todo);
+  Future<List<int>> insertAllPerson(List<Person1> todo);
 
   @Query("Select * from Person1")
   Future<List<Person1>> findAllPerson();
